@@ -3,7 +3,7 @@ var app = express();
 var fs = require('fs');
 var port = process.env.PORT || 3000;
 
-app.get('/home', function (req, res) {
+app.get('/freewayautoglass.html', function (req, res) {
 var html = fs.readFileSync('freewayautoglass.html', 'utf-8');
   res.send(html);
 });
