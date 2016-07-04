@@ -8,6 +8,11 @@ var html = fs.readFileSync('freewayautoglass.html', 'utf-8');
   res.send(html);
 });
 
+app.get('/freewayautoglassservices.html', function (req, res) {
+var html = fs.readFileSync('freewayautoglassservices.html', 'utf-8');
+  res.send(html);
+});
+
 app.listen(port, function () {
   console.log('Example app listening on port 3000!');
 });
