@@ -13,6 +13,16 @@ var html = fs.readFileSync('freewayautoglassservices.html', 'utf-8');
   res.send(html);
 });
 
+app.get('/freewayautoglassaboutus.html', function (req, res) {
+var html = fs.readFileSync('freewayautoglassaboutus.html', 'utf-8');
+  res.send(html);
+});
+
+app.get('/freewayautoglasscontactus.html', function (req, res) {
+var html = fs.readFileSync('freewayautoglasscontactus.html', 'utf-8');
+  res.send(html);
+});
+
 app.listen(port, function () {
   console.log('Example app listening on port 3000!');
 });
