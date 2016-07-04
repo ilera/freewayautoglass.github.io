@@ -7,6 +7,6 @@ var html = fs.readFileSync('freewayautoglass.html', 'utf-8');
   res.send(html);
 });
 
-app.listen(3000, function () {
+app.listen(80, function () {
   console.log('Example app listening on port 3000!');
 });
