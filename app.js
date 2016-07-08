@@ -2,8 +2,16 @@ var express = require('express');
 var app = express();
 var fs = require('fs');
 var port = process.env.PORT || 3000;
+var bodyParser = require('body-parser')
+
+app.use(bodyParser.json())
 
 app.get('/freewayautoglass.html', function (req, res) {
+var html = fs.readFileSync('freewayautoglass.html', 'utf-8');
+  res.send(html);
+});
+
+app.get('/', function (req, res) {
 var html = fs.readFileSync('freewayautoglass.html', 'utf-8');
   res.send(html);
 });
@@ -23,6 +31,13 @@ var html = fs.readFileSync('freewayautoglasscontactus.html', 'utf-8');
   res.send(html);
 });
 
+app.post('/endpoint', function(req, res){
+    var obj = {};
+    console.log('body: ' + JSON.stringify(req.body));
+    res.send(req.body);
+});
+
 app.listen(port, function () {
   console.log('Example app listening on port 3000!');
 });
+

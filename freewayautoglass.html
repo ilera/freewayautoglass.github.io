@@ -7,6 +7,7 @@
   <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,700' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" type="text/css" href="freewayautoglass.css">
   <script type="clientvalidation.js"></script>
+  <script src="http://code.jquery.com/jquery-1.6.2.min.js"></script>
 </head>
 <body>
 <header class="container">
@@ -27,8 +28,10 @@
      <h2>Set up an Appointment</h2>
       <!---<a class="btn btn-primary" role="button" href="freewayautoglasscontactus.html">Click Here</a> - -->
       <h3>Leave us your name and phone number or email, and a representive will contact you in 24 hours:</h3>
-    <p><textarea name="message" rows="1" cols="50"></textarea></p>
-    <input type="submit" value="Submit">
+    <p><textarea id="Form" name="message" rows="1" cols="50"></textarea></p>
+    <div id="select_div">
+    <input type="submit" value="Submit" href="#" id="select_link">
+    <a href="#" id="select_link"></a></div>
     </div>
   </div>
   </section>
@@ -61,5 +64,45 @@
       </p>
     </div>
   </footer>
+  <script type="text/javascript">
+            $(function(){       
+                $('#select_link').click(function(e){
+                    e.preventDefault();
+                    console.log('select_link clicked');
+                    
+                     /*$.ajax({
+                        dataType: 'jsonp',
+                        data: "data=yeah",            
+                        jsonp: 'callback',
+                        url: 'http://localhost:3000/endpoint?callback=?',           
+                        success: function(data) {
+                            console.log('success');
+                            console.log(JSON.stringify(data));
+                        }
+                    });*/
+          var data = {};
+          data.title = $("#Form").val();
+          data.message = "message";
+          
+          $.ajax({
+            type: 'POST',
+            data: JSON.stringify(data),
+                contentType: 'application/json',
+                        url: 'http://localhost:3000/endpoint',            
+                        success: function(data) {
+                            console.log('success');
+                            console.log(JSON.stringify(data));
+                        }
+                    });
+          /*$.ajax('http://localhost:3000/endpoint', {
+                  type: 'POST',
+                  data: JSON.stringify(data),
+                  contentType: 'application/json',
+                  success: function() { console.log('success');},
+                  error  : function() { console.log('error');}
+          });*/
+                });       
+            });
+        </script>
 </body>
 </html>
