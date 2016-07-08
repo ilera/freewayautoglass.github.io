@@ -3,6 +3,13 @@ var app = express();
 var fs = require('fs');
 var port = process.env.PORT || 3000;
 var bodyParser = require('body-parser')
+var email 	= require("emailjs");
+var server 	= email.server.connect({
+   user:    "freewayautoglassserver@gmail.com", 
+   password:"smileanddial", 
+   host:    "smtp.gmail.com", 
+   ssl:     true
+});
 
 app.use(bodyParser.json())
 
@@ -34,7 +41,16 @@ var html = fs.readFileSync('freewayautoglasscontactus.html', 'utf-8');
 app.post('/endpoint', function(req, res){
     var obj = {};
     console.log('body: ' + JSON.stringify(req.body));
-    res.send(req.body);
+    
+    server.send({
+   		text:    req.body.title, 
+   		from:    "freewayautoglassserver@gmail.com", 
+   		to:      "izadorhojoonlera@gmail.com",
+   		subject: "testing emailjs"
+	}, function(err, message) { 
+		console.log(err || message); 
+		res.send(req.body);
+	});
 });
 
 app.listen(port, function () {
