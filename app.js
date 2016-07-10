@@ -11,11 +11,19 @@ var server 	= email.server.connect({
    ssl:     true
 });
 
+
 app.use(bodyParser.json())
+
 
 app.get('/freewayautoglass.html', function (req, res) {
 var html = fs.readFileSync('freewayautoglass.html', 'utf-8');
   res.send(html);
+});
+
+app.get('/freewayautoglass.css', function (req, res) {
+var html = fs.readFileSync('freewayautoglass.css', 'utf-8');
+	res.setHeader('Content-Type', 'text/css');
+ 	res.send(html);
 });
 
 app.get('/', function (req, res) {
@@ -35,6 +43,11 @@ var html = fs.readFileSync('freewayautoglassaboutus.html', 'utf-8');
 
 app.get('/freewayautoglasscontactus.html', function (req, res) {
 var html = fs.readFileSync('freewayautoglasscontactus.html', 'utf-8');
+  res.send(html);
+});
+
+app.get('/contact-form-thank-you.html', function (req, res) {
+var html = fs.readFileSync('contact-form-thank-you.html', 'utf-8');
   res.send(html);
 });
 

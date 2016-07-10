@@ -5,7 +5,7 @@
   <meta charset="utf-8"/>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
   <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,700' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" type="text/css" href="freewayautoglass.css">
+  <link rel="stylesheet" type="text/css" href="/freewayautoglass.css">
   <script type="clientvalidation.js"></script>
   <script src="http://code.jquery.com/jquery-1.6.2.min.js"></script>
 </head>
@@ -30,7 +30,7 @@
       <h3>Leave us your name and phone number or email, and a representive will contact you in 24 hours:</h3>
     <p><textarea id="Form" name="message" rows="1" cols="50"></textarea></p>
     <div id="select_div">
-    <input type="submit" value="Submit" href="#" id="select_link">
+    <a class="btn btn-primary" role="button" href="contact-form-thank-you.html" id="select_link">Submit</a>
     <a href="#" id="select_link"></a></div>
     </div>
   </div>
@@ -67,7 +67,6 @@
   <script type="text/javascript">
             $(function(){       
                 $('#select_link').click(function(e){
-                    e.preventDefault();
                     console.log('select_link clicked');
                     
                      /*$.ajax({
